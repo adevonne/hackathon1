@@ -30,5 +30,12 @@
     "cross-env": "^7.0.3",
     "husky": "^8.0.3"
   },
+<<<<<<< Updated upstream
   "dependencies": {}
+=======
+  "dependencies": {
+    "pnpm": "^8.5.0",
+    "react-router-dom": "^6.11.1"
+  }
+>>>>>>> Stashed changes
 }
