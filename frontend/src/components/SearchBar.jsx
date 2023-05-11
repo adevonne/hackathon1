@@ -5,7 +5,7 @@ export default function SearchBar() {
       type="text"
       name="search"
       placeholder="Search City.."
-      className="mb-[80px] mt-[5px] ml-[10%] p-[15px] rounded-md border-blue-900 border-4 bg-white"
+      className="mb-[80px] mt-[5px] ml-[10%] p-[15px] rounded-md border-blue-900 border-4"
     />
   );
 }
