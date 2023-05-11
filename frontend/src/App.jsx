@@ -1,5 +1,5 @@
-import Maps from "@components/maps";
 import { useEffect } from "react";
+import Maps from "./components/Maps";
 
 function App() {
   const getToken = () => {
@@ -10,7 +10,7 @@ function App() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.access_token);
+        console.error(data.access_token);
         fetch(
           "https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873",
           {
@@ -22,7 +22,7 @@ function App() {
           }
         )
           .then((res) => res.json())
-          .then((datas) => console.log(datas))
+          .then((datas) => console.error(datas))
           .catch((err) => console.error(err));
       });
   };
