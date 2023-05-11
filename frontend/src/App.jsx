@@ -1,4 +1,9 @@
 import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import HotelList from "./pages/HotelList";
+import HotelDetails from "./pages/HotelDetails";
 import Maps from "./components/Maps";
 
 function App() {
@@ -16,7 +21,6 @@ function App() {
           {
             method: "GET",
             headers: {
-              // "Content-Type": "application/json",
               Authorization: `Bearer ${data.access_token}`,
             },
           }
@@ -31,6 +35,15 @@ function App() {
     getToken();
   }, []);
 
-  return <Maps />;
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/hotels " element={<HotelList />} />
+        <Route path="/hotels/:id" element={<HotelDetails />} />
+      </Routes>
+      <Maps />
+    </div>
+  );
 }
 export default App;
