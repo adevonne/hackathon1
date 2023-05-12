@@ -43,7 +43,6 @@ export default function HotelDetails() {
                 .then((res) => res.json())
                 .then((dataHotel) => {
                   setFinalDatas(dataHotel.data);
-                  // console.log(finalData);
                 });
             }
           })

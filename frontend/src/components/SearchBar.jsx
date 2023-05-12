@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Results from "./Results";
 
 export default function SearchBar() {
@@ -44,6 +44,7 @@ export default function SearchBar() {
   if (results.length < 0) {
     return <p>Chargement en cours</p>;
   }
+
   return (
     <label htmlFor="" className="header-search text-center">
       <div className="search-container ">
