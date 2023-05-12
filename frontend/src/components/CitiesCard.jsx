@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import cities from "../data/allCities";
-import "./CitiesCard.css";
+import "./List.css";
 
 function CitiesCard() {
   const getCity = (result) => {
@@ -8,7 +8,7 @@ function CitiesCard() {
     localStorage.setItem("longitude", result.geoCode.longitude);
   };
   return (
-    <section className="citycard gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5">
+    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 text-center mt-10 max-w-[90%] m-auto">
       {cities.map((city) => (
         <Link
           to="/hotels"
@@ -16,8 +16,12 @@ function CitiesCard() {
             getCity(city);
           }}
         >
-          <div key={`city-${city.id}`} className="card">
-            <img src={city.image} alt={city.name} />
+          <div key={`city-${city.id}`} className="hotel_card">
+            <img
+              className="h-[80%] w-[100%] rounded-t-md"
+              src={city.image}
+              alt={city.name}
+            />
             <p>{city.name}</p>
           </div>
         </Link>
