@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  cursor: url("/assets/cursor.png");
+}
+
 body {
   margin: 0;
 }
 
 .leaflet-container {
-  width: 70%;
+  width: 90%;
   height: 50vh;
   margin: auto;
 }
