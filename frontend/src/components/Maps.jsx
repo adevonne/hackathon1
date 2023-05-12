@@ -1,45 +1,42 @@
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMapEvents,
-} from "react-leaflet";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "../App.css";
+import hotelsimg from "../data/hotelsimg";
 
-// How safe is Barcelona? (based a geo location and a radius)
-function LocationMarker() {
-  const [position, setPosition] = useState(null);
-  const map = useMapEvents({
-    click(e) {
-      setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
-    },
-    locationfound(e) {
-      setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
-    },
-  });
-
-  useEffect(() => {
-    map.locate();
-  }, []);
-
-  return position === null ? null : (
-    <Marker position={position}>
-      <Popup>You are here</Popup>
-    </Marker>
-  );
-}
-export default function Maps() {
+export default function Maps({ latitude, longitude, hotels }) {
   return (
-    <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+    <MapContainer
+      center={[latitude, longitude]}
+      zoom={13}
+      scrollWheelZoom={false}
+    >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <LocationMarker />
+      {/* <LocationMarker /> */}
+      {hotels.map((hotel) => (
+        <Marker position={[hotel.geoCode.latitude, hotel.geoCode.longitude]}>
+          <Popup>
+            <Link to={`/hotels/${hotel.hotelId}`}>
+              <h2>{hotel.name}</h2>
+              <img src={hotelsimg[0].img} alt="hotel" />
+              <p>
+                {hotel.distance.value}
+                {hotel.distance.unit}
+              </p>
+            </Link>
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 }
+
+Maps.propTypes = {
+  latitude: PropTypes.string.isRequired,
+  longitude: PropTypes.string.isRequired,
+  hotels: PropTypes.string.isRequired,
+};
