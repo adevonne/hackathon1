@@ -1,6 +1,6 @@
-import Maps from "@components/Maps";
-import List from "@components/List";
 import { useEffect, useState } from "react";
+import Maps from "../components/Maps";
+import List from "../components/List";
 
 export default function HotelList() {
   const [hotels, setHotels] = useState([]);

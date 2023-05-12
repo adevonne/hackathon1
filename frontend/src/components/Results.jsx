@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import "../pages/Home.css";
 
 export default function Results({ results }) {
   // const { name, address.countryCode, geoCode.latitude, geoCode.longitude } = results;
@@ -10,7 +11,7 @@ export default function Results({ results }) {
   };
 
   return (
-    <section className="result">
+    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {results.map((result) => (
         <Link
           to="/hotels"
@@ -19,7 +20,7 @@ export default function Results({ results }) {
           }}
           key={result.geoCode.latitude}
         >
-          <div className="card ">
+          <div className="card_result">
             <p>{result.name}</p>
             <p>{result.address.countryCode}</p>
           </div>

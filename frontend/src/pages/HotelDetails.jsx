@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import hotelsimg from "../data/hotelsimg";
 
 export default function HotelDetails() {
   const [finalDatas, setFinalDatas] = useState([]);
   const { id } = useParams();
+
+  const randomImg = () => {
+    return hotelsimg[Math.floor(Math.random() * 10)].img;
+  };
 
   const getToken = () => {
     fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
@@ -59,5 +64,23 @@ export default function HotelDetails() {
     return <p>En cours de chargement</p>;
   }
 
-  return <div className="mt-3">{finalDatas.type}</div>;
+  return (
+    <div className="mt-3 hotel_detail pb-10">
+      <figure>
+        <img src={randomImg()} alt="" className=" rounded-t-md" />
+      </figure>
+      <figcaption className=" h-28 mt-4">
+        <h2 className=" text-2xl">{finalDatas.hotel.name}</h2>
+        <p>
+          {finalDatas.offers[0].price.base}{" "}
+          {finalDatas.offers[0].price.currency}
+        </p>
+        <div className="text-center border-2 w-6/12 m-auto border-black rounded-md hover:bg-black/80 hover:text-white/80">
+          <button className="text-2xl" type="button">
+            Réserver
+          </button>
+        </div>
+      </figcaption>
+    </div>
+  );
 }
