@@ -20,7 +20,10 @@ export default function Maps({ latitude, longitude, hotels }) {
       />
       {/* <LocationMarker /> */}
       {hotels.map((hotel) => (
-        <Marker position={[hotel.geoCode.latitude, hotel.geoCode.longitude]}>
+        <Marker
+          key={hotel.geoCode.latitude}
+          position={[hotel.geoCode.latitude, hotel.geoCode.longitude]}
+        >
           <Popup>
             <Link to={`/hotels/${hotel.hotelId}`}>
               <h2>{hotel.name}</h2>
