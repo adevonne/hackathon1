@@ -30,7 +30,7 @@ export default function HotelDetails() {
           .then((res) => res.json())
           .then((datas) => {
             if (datas.data.length) {
-              console.log(datas.data[0].offers[0].id);
+              // console.log(datas.data[0].offers[0].id);
               fetch(
                 `https://test.api.amadeus.com/v3/shopping/hotel-offers/${datas.data[0].offers[0].id}`,
                 {
@@ -56,7 +56,7 @@ export default function HotelDetails() {
     getToken();
   }, []);
 
-  if (finalDatas.length == 0) {
+  if (finalDatas.length === 0) {
     return <p>En cours de chargement</p>;
   }
 
