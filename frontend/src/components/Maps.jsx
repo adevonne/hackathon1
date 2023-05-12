@@ -14,7 +14,7 @@ function LocationMarker() {
   const map = useMapEvents({
     click(e) {
       setPosition(e.latlng);
-      console.log(e.latlng);
+      // console.log(e.latlng);
       map.flyTo(e.latlng, map.getZoom());
     },
     locationfound(e) {
