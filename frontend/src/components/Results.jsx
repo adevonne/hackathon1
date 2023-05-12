@@ -19,7 +19,7 @@ export default function Results({ results }) {
           }}
           key={result.geoCode.latitude}
         >
-          <div className="card ">
+          <div>
             <p>{result.name}</p>
             <p>{result.address.countryCode}</p>
           </div>
