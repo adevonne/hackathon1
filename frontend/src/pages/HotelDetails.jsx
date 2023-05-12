@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function HotelDetails() {
-  const [setFinalDatas] = useState()[1];
+  const [finalDatas, setFinalDatas] = useState([]);
   const { id } = useParams();
 
   const getToken = () => {
@@ -17,7 +17,9 @@ export default function HotelDetails() {
       .then((data) => {
         // console.log(data.access_token);
         fetch(
-          `https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=[${id}]`,
+          `https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=["${id}"]`,
+          // `https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=["MCLONGHM"]`,
+          // &adults=1&checkInDate=2023-11-22&roomQuantity=1&bestRateOnly=true
           {
             method: "GET",
             headers: {
@@ -27,29 +29,36 @@ export default function HotelDetails() {
         )
           .then((res) => res.json())
           .then((datas) => {
-            // console.log(datas);
-            fetch(
-              `https://test.api.amadeus.com/v3/shopping/hotel-offers/${datas.data.offers[0].id}`,
-              {
-                method: "GET",
-                headers: {
-                  Authorization: `Bearer ${data.access_token}`,
-                },
-              }
-            )
-              .then((res) => res.json())
-              .then((dataHotel) => {
-                setFinalDatas(dataHotel.data);
-                // console.log(finalData);
-              });
+            if (datas.data.length) {
+              console.log(datas.data[0].offers[0].id);
+              fetch(
+                `https://test.api.amadeus.com/v3/shopping/hotel-offers/${datas.data[0].offers[0].id}`,
+                {
+                  method: "GET",
+                  headers: {
+                    Authorization: `Bearer ${data.access_token}`,
+                  },
+                }
+              )
+                .then((res) => res.json())
+                .then((dataHotel) => {
+                  setFinalDatas(dataHotel.data);
+                  // console.log(finalData);
+                });
+            }
           })
-          .catch((err) => console.error(err));
-      });
+          .catch((err) => console.error("2", err));
+      })
+      .catch((err) => console.error("1", err));
   };
 
   useEffect(() => {
     getToken();
   }, []);
 
-  return <div className="mt-3">test</div>;
+  if (finalDatas.length == 0) {
+    return <p>En cours de chargement</p>;
+  }
+
+  return <div className="mt-3">{finalDatas.type}</div>;
 }
