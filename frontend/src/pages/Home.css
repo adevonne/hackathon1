@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "Finlandica";
+  src: local("Finlandica"),
+    url("src/assets/Finlandica/Finlandica-VariableFont_wght.ttf")
+      format("truetype");
+}
+@font-face {
+  font-family: "Catamaran";
+  src: local("Catamaran"),
+    url("src/assets/Catamaran/Catamaran-VariableFont_wght.ttf")
+      format("truetype");
+}
+
+body {
+  color: black;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Finlandica", sans-serif;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  font-family: "Catamaran", sans-serif;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  font-family: "Catamaran", sans-serif;
+  font-size: 1.2rem;
+}
+
+.card_result {
+  margin: auto;
+  background: linear-gradient(135deg, #d6e8f6 0%, #b2c3f8 100%);
+  border-radius: 7px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+@media screen and (min-width: 780px) {
+  /* .search {
+    margin-left: 25%;
+  } */
+  #searchbar {
+    width: 30%;
+  }
+}
+
+#searchbar {
+  margin-top: 5px;
+}
+input {
+  background-color: rgba(255, 255, 255, 0.233);
+  color: black;
+}
+.search {
+  display: flex;
+}

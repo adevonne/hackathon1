@@ -45,18 +45,21 @@ export default function SearchBar() {
     return <p>Chargement en cours</p>;
   }
   return (
-    <label htmlFor="" className="header-search text-center">
+    <label
+      htmlFor=""
+      className="header-search text-center mt-10 mx-auto w-10/12"
+    >
       <div className="search-container ">
         <input
           placeholder="Recherche..."
           type="text"
-          className="inputSearch border-2 border-neutral-950"
+          className="inputSearch border-2 border-neutral-950 rounded-md w-80 mb-5 h-7"
           value={searchQuery}
           onChange={handleChange}
         />
         <button
           id="myButton"
-          className="buttonSearch"
+          className="buttonSearch border-2 border-black hover:border-black rounded-md ml-5 px-3 h-7"
           type="button"
           onClick={handleSearch}
         >
