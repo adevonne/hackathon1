@@ -1,5 +1,5 @@
-import logo from "@assets/condort.png";
 import { Link } from "react-router-dom";
+import logo from "../assets/condort.png";
 
 export default function Header() {
   return (
@@ -7,7 +7,7 @@ export default function Header() {
       <Link to="/">
         <img className="absolute w-20 h-20 top-0" src={logo} alt="hotels" />
       </Link>
-      <h1 className="justify-center m-auto text-4xl text-white">Oukondort</h1>
+      <h1 className="justify-center m-auto text-4xl text-white">Oukondor</h1>
     </div>
   );
 }

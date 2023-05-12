@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "../App.css";
 import hotelsimg from "../data/hotelsimg";
 
 export default function Maps({ latitude, longitude, hotels }) {
+  const randomImg = () => {
+    return hotelsimg[Math.floor(Math.random() * 10)].img;
+  };
   return (
     <MapContainer
       center={[latitude, longitude]}
@@ -22,7 +24,7 @@ export default function Maps({ latitude, longitude, hotels }) {
           <Popup>
             <Link to={`/hotels/${hotel.hotelId}`}>
               <h2>{hotel.name}</h2>
-              <img src={hotelsimg[0].img} alt="hotel" />
+              <img src={randomImg()} alt="hotel" className="w-full" />
               <p>
                 {hotel.distance.value}
                 {hotel.distance.unit}
