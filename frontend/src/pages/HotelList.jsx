@@ -32,7 +32,7 @@ export default function HotelList() {
         )
           .then((res) => res.json())
           .then((datas) => {
-            console.log("1", datas.data);
+            // console.log("1", datas.data);
             setHotels(datas.data);
           })
           .catch((err) => console.error(err));
@@ -63,7 +63,7 @@ export default function HotelList() {
         )
           .then((res) => res.json())
           .then((datas) => {
-            console.log("2", datas.data);
+            // console.log("2", datas.data);
             setHotels(datas.data);
           })
           .catch((err) => console.error(err));
@@ -100,7 +100,7 @@ export default function HotelList() {
                 // } else {
                 //   getToken2();
                 // }
-                console.log(e.target.value);
+                // console.log(e.target.value);
               }}
               id="rating-select"
             >
