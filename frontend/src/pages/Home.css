@@ -12,9 +12,9 @@
 }
 
 body {
-  color: #005dac;
+  color: black;
   margin: 0;
-  font-size: xx-large;
+  font-size: 0.8rem;
 }
 
 h1 {
@@ -33,26 +33,27 @@ p {
   display: flex;
   justify-content: center;
   font-family: "Catamaran", sans-serif;
-  font-size: 1.75rem;
+  font-size: 1.2rem;
+}
+
+.card_result {
+  margin: auto;
+  background: linear-gradient(135deg, #d6e8f6 0%, #b2c3f8 100%);
+  border-radius: 7px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 @media screen and (min-width: 780px) {
-  .search {
+  /* .search {
     margin-left: 25%;
-  }
+  } */
   #searchbar {
     width: 30%;
   }
 }
 
 #searchbar {
-  margin-bottom: 80px;
   margin-top: 5px;
-  margin-left: 10%;
-  padding: 15px;
-  border-radius: 10px;
-  border-color: navy;
-  width: 60%;
 }
 input {
   background-color: rgba(255, 255, 255, 0.233);

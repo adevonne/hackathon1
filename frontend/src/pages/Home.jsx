@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
-import Maps from "../components/Maps";
 import CitiesCard from "../components/CitiesCard";
 import "./Home.css";
 
@@ -9,16 +8,15 @@ export default function Home() {
     <>
       <div className="search">
         <SearchBar />
-        <Link to="/user">
+        {/* <Link to="/user">
           <img
             className="flex w-[80px] rounded-full md:w-[160px]"
             src="../src/assets/moi.jpg"
             alt=""
           />
-        </Link>
+        </Link> */}
       </div>
       <CitiesCard />
-      <Maps />
     </>
   );
 }
