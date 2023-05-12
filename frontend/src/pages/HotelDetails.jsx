@@ -61,7 +61,7 @@ export default function HotelDetails() {
   }, []);
 
   if (finalDatas.length === 0) {
-    return <p>En cours de chargement</p>;
+    return <p>Loading ...</p>;
   }
 
   return (

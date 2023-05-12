@@ -15,6 +15,7 @@ function CitiesCard() {
           onClick={() => {
             getCity(city);
           }}
+          key={city.id}
         >
           <div key={`city-${city.id}`} className="hotel_card">
             <img
