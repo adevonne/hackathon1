@@ -44,6 +44,7 @@ export default function SearchBar() {
   if (results.length < 0) {
     return <p>Chargement en cours</p>;
   }
+
   return (
     <label
       htmlFor=""
