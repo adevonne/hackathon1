@@ -52,7 +52,7 @@ export default function SearchBar() {
     >
       <div className="search-container ">
         <input
-          placeholder="Recherche..."
+          placeholder="search..."
           type="text"
           className="inputSearch border-2 border-neutral-950 rounded-md w-80 mb-5 h-7"
           value={searchQuery}
@@ -64,7 +64,7 @@ export default function SearchBar() {
           type="button"
           onClick={handleSearch}
         >
-          Rechercher
+          Search
         </button>
         <Results results={results} />
       </div>
