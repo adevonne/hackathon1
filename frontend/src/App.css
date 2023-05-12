@@ -2,14 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  cursor: url("/assets/cursor.png");
+}
+
 body {
   margin: 0;
 }
 
 .leaflet-container {
-  width: 70%;
+  width: 90%;
   height: 50vh;
   margin: auto;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
